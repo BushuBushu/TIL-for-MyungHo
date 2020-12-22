@@ -20,3 +20,21 @@ a = list(map(int, sys.stdin.readline().split()))
 list = list[i - 1 : j - 1]
 ```
 
+#### 연결 방식
+
+|      |        |
+| ---- | ------ |
+| %f   | 실수   |
+| %d   | 정수   |
+| %s   | 문자열 |
+
+```python
+#예시
+
+a = 1
+b = 2
+print("#%d %d" %(a, b)) # #1 2
+
+#%뒤에 있는 a와 b를 %d로 대체한다.
+```
+
