@@ -6,14 +6,14 @@ N = int(sys.stdin.readline())
 arr = list(range(1, N + 1))
 cnt = [0] * (N +3)
 num = 0
-'''for i, x in enumerate(arr):
+for i, x in enumerate(arr):
     for j, y in enumerate(arr) :
         if x % (j + 1) == 0 :
             cnt[i] += 1
 for i, x in enumerate(cnt) :
     if x == 2 :
         num += 1
-print(num)'''
+print(num)
 
 # 강의 풀이 (에라토스테네스 체 방법 사용)
 ch = [0] * (N +3)
