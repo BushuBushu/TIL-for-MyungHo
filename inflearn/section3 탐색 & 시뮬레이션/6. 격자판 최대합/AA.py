@@ -2,7 +2,7 @@ import sys
 sys.stdin = open("data/in1.txt", "rt")
 N = int(sys.stdin.readline())
 
-'''
+
 #내 풀이
 diagonal_right= 0 #좌 -> 우 대각선
 diagonal_left = 0 # 우 -> 좌 대각선
@@ -40,9 +40,9 @@ for x in num_list :
     if x > num_max :
         num_max = x
 print(num_max)
-'''
-# 강의 풀이
 
+
+# 강의 풀이
 a = [list(map(int, input().split())) for _ in range(N)] #input 한 줄을 읽어서 리스트화 시킴 * N번
 largest = -2147000000
 for i in range(N) :
