@@ -1,23 +1,18 @@
 import sys
-#sys.stdin = open("data/in5.txt", "rt")
+sys.stdin = open("data/in3.txt", "rt")
 
 a = [list(map(int, sys.stdin.readline().split())) for _ in range(9)]
-'''
-for i in a :  
-    print(i)
-'''
+
 true_list = [1] * 9
 end = True #3*3 실행에 대한 조건
 for i in range(9) :
     z_list = [0] * 9 # 가로 누적
     x_list = [0] * 9 # 세로 누적
-    p = 0 #세로 인덱스
     for j in range(9) :
         #가로
         z_list[ a[i][j] -1 ] = 1
         #세로
-        x_list[ a[j][p] -1 ] = 1
-    p += 1
+        x_list[ a[j][i] -1 ] = 1
     if z_list != true_list or x_list != true_list:
         print("NO")
         end= False
@@ -49,4 +44,31 @@ if end :
     else :
         print("YES")
 
+# 강의 풀이
+
+def check(a) :
+    for i in range(9) :
+        ch1 = [0] * 10 #행을 체크
+        ch2 = [0] * 10 #열을 체크
+        for j in range(9):
+            ch1[ a[i][j] ] = 1
+            ch2[ a[j][i] ] = 1
+        if sum(ch1) !=9 or sum(ch2) !=9 :
+            return False
+    # 4중 for문 사용
+    for i in range(3) :
+        for j in range(3) :
+            ch3 = [0] * 10
+            for k in range(3) :
+                for s in range(3) :
+                    ch3[a[i * 3 + k][j * 3 + s]] = 1
+            if sum(ch3) != 9 :
+                return False
+    return True
+    
+
+if check(a):
+    print("YES")
+else:
+    print("NO")
 
