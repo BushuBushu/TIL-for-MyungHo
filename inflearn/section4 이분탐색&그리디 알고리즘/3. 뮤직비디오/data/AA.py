@@ -1,10 +1,8 @@
 import sys
-sys.stdin = open("data/in7.txt", "rt")
-
+#sys.stdin = open("data/in6.txt", "rt")
 N, M = map(int, sys.stdin.readline().split())
 a = list(map(int, sys.stdin.readline().split()))
 
-#강의 설명 듣고 내 풀이
 def Count(len) :
     cnt = 0
     num = 0
@@ -16,7 +14,6 @@ def Count(len) :
             num += x
     if num >= 1 :
         cnt += 1
-    print(cnt)
     return cnt  
     
 lt = 1
@@ -29,8 +26,9 @@ while lt <= rt :
     else :
         lt = mid + 1
 print(res)
-
-#강의 풀이 + 반례 수정
+'''    
+import sys
+sys.stdin = open("data/in1.txt", "rt")
 def Count(capacity):
     cnt=1
     sum=0
@@ -44,18 +42,16 @@ def Count(capacity):
 
 n, m=map(int, input().split())
 Music=list(map(int, input().split()))
-# 리스트 중 가장 큰 노래
 maxx=max(Music)
 lt=1
 rt=sum(Music)
 res=0
 while lt<=rt:
     mid=(lt+rt)//2
-    # 용량이 가장 큰 노래보다 mid는 크거나 같아야 한다. 
     if mid>=maxx and Count(mid)<=m:
         res=mid
         rt=mid-1
     else:
         lt=mid+1
-
-
+print(res)
+'''
