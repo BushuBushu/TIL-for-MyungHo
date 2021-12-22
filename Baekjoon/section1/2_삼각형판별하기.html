@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer;
+        const arr = [a, b, c];
+        const max = Math.max(...arr);
+        let result = 0;
+
+        for (let i = 0; i < arr.length; ++i) {
+          if (arr[i] !== max) {
+            result += arr[i];
+          }
+        }
+        if (result > max) {
+          answer = "YES";
+          return answer;
+        } else {
+          answer = "NO";
+          return answer;
+        }
+      }
+
+      console.log(solution(13, 33, 17));
+    </script>
+  </body>
+</html>
