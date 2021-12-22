@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = 240000;
+        const arr = [a, b, c];
+        for (let i = 0; i < 3; i++) {
+          if (answer > arr[i]) {
+            answer = arr[i];
+          }
+        }
+        return answer;
+      }
+
+      console.log(solution(2, 5, 1));
+    </script>
+  </body>
+</html>
