@@ -6,7 +6,14 @@
   <body>
     <script>
       function solution(arr) {
-        let answer;
+        let answer = 0;
+        let max = -2400000;
+        for (let i = 0; i < arr.length; i++) {
+          if (max < arr[i]) {
+            max = arr[i];
+            answer += 1;
+          }
+        }
 
         return answer;
       }
