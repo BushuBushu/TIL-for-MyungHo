@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = 0;
+        const n = arr.length;
+        const d0 = [-1, 0, 1, 0];
+        const d1 = [0, 1, 0, -1];
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            let fleg = 1;
+            for (let k = 0; k < 4; k++) {
+              const n0 = i + d0[k];
+              const n1 = j + d1[k];
+              if (
+                n0 >= 0 &&
+                n0 < n &&
+                n1 >= 0 &&
+                n1 < n &&
+                arr[i][j] <= arr[n0][n1]
+              ) {
+                fleg = 0;
+                break;
+              }
+              // arr[1][2] -> arr[0][2], arr[1][3], arr[2][2], arr[1][1]
+            }
+            if (fleg === 1) answer += 1;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [
+        [5, 3, 7, 2, 3],
+        [3, 7, 1, 6, 1],
+        [7, 2, 5, 3, 4],
+        [4, 3, 6, 4, 1],
+        [8, 7, 3, 5, 2],
+      ];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
