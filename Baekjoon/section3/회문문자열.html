@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "YES";
+        for (let i = 0; i < Math.floor(s.length / 2); i++) {
+          if (s[i].toLowerCase() !== s[s.length - i - 1].toLowerCase()) {
+            answer = "NO";
+          }
+        }
+
+        return answer;
+      }
+
+      let str = "gooG";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
