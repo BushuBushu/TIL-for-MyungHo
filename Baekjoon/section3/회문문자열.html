@@ -7,11 +7,14 @@
     <script>
       function solution(s) {
         let answer = "YES";
-        for (let i = 0; i < Math.floor(s.length / 2); i++) {
-          if (s[i].toLowerCase() !== s[s.length - i - 1].toLowerCase()) {
-            answer = "NO";
-          }
-        }
+        // 1번
+        // for (let i = 0; i < Math.floor(s.length / 2); i++) {
+        //   if (s[i].toLowerCase() !== s[s.length - i - 1].toLowerCase()) answer = "NO";
+        // }
+
+        // 2번
+        const lowerCase = s.toLowerCase();
+        if (lowerCase.split("").reverse().join("") !== lowerCase) return "NO";
 
         return answer;
       }
