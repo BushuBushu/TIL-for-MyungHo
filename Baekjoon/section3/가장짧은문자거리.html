@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let answer = [];
+        for (let i = 0; i < s.length; i++) {
+          // 현재의 i 기준 가장 가까운 e를 저장
+          let min = 240000;
+          for (let j = 0; j < s.length; j++) {
+            if (s[j] === t) {
+              if (min > Math.abs(i - j)) {
+                min = Math.abs(i - j);
+              }
+            }
+          }
+          answer.push(min);
+        }
+        return answer;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>
