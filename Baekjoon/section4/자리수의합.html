@@ -8,7 +8,22 @@
       function solution(n, arr) {
         let answer,
           max = Number.MIN_SAFE_INTEGER;
-
+        for (let i = 0; i < n; i++) {
+          let sum = 0;
+          let num = arr[i];
+          while (num > 0) {
+            sum += num % 10;
+            num = Math.floor(num / 10);
+          }
+          if (max < sum) {
+            max = sum;
+            answer = arr[i];
+          } else if (max === sum) {
+            if (answer < arr[i]) {
+              answer = arr[i];
+            }
+          }
+        }
         return answer;
       }
 
