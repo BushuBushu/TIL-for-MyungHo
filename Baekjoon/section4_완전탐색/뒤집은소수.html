@@ -5,17 +5,21 @@
   </head>
   <body>
     <script>
-      function solution(arr) {
-        let answer;
-        let num = 32;
-        console.log(Math.sqrt(num));
-        function isPrime(num) {
-          if (num == 2) return false;
-          for (let i = 2; i < num; i++) {
-            if (num % i === 0) {
-              return false;
-            }
+      function isPrime(num) {
+        if (num === 1) return false;
+        for (let i = 2; i <= Math.floor(Math.sqrt(num)); i++) {
+          if (num % i === 0) {
+            return false;
           }
+        }
+        return true;
+      }
+
+      function solution(arr) {
+        let answer = [];
+        for (let i = 0; i < arr.length; i++) {
+          let res = Number(arr[i].toString().split("").reverse().join(""));
+          if (isPrime(res)) answer.push(res);
         }
         return answer;
       }
