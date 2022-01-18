@@ -7,7 +7,21 @@
     <script>
       function solution(s) {
         let answer;
-
+        let sh = new Map();
+        let max = Number.MIN_SAFE_INTEGER;
+        for (let i = 0; i < s.length; i++) {
+          if (sh.get(s[i])) {
+            sh.set(s[i], sh.get(s[i]) + 1);
+          } else {
+            sh.set(s[i], 1);
+          }
+        }
+        for (const [key, val] of sh) {
+          if (val > max) {
+            max = val;
+            answer = key;
+          }
+        }
         return answer;
       }
 

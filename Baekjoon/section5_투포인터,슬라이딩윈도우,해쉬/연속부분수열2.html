@@ -6,8 +6,15 @@
   <body>
     <script>
       function solution(m, arr) {
-        let answer;
-
+        let answer = 0;
+        for (let i = 0; i < arr.length; i++) {
+          let sum = arr[i];
+          if (i <= m) answer++;
+          for (let j = i + 1; j < arr.length; j++) {
+            sum += arr[j];
+            if (sum <= m) answer++;
+          }
+        }
         return answer;
       }
 
