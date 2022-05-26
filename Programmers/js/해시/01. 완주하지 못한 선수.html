@@ -9,21 +9,46 @@
   <body>
     <script>
       function solution(participant, completion) {
+        // 1. sort로 풀이
         let answer;
-        const obj = {};
-        participant.forEach((data) => {
-          if (Object.keys(obj).includes(data)) {
-            obj[data] += 1;
-          } else {
-            obj[data] = 1;
+        const sortedParticipant = participant.sort();
+        const sortedCompletion = completion.sort();
+
+        // 1)
+        for (let i = 0; i < sortedParticipant.length; i++) {
+          if (sortedParticipant[i] !== sortedCompletion[i]) {
+            answer = sortedParticipant[i];
+            break;
           }
+        }
+
+        // 2) 좀 더 간략
+        sortedParticipant.find(
+          (data, index) => data !== sortedCompletion[index]
+        );
+
+        // 2. Hash로 풀기
+        let hashed = [];
+        participant.forEach((entry) => {
+          hashed[entry] = hashed[entry] ? hashed[entry] + 1 : 1;
         });
-        completion.forEach((data) => {
-          if (Object.keys(obj).includes(data)) {
-            obj[data] -= 1;
-          }
+        console.log(hashed); // [mislav: 2, stanko:1, ana:1]
+        completion.forEach((entry) => {
+          hashed[entry] = hashed[entry] - 1;
         });
-        answer = Object.entries(obj).find((data) => data[1] === 1)[0];
+
+        for (var key in hashed) {
+          console.log(key);
+          if (hashed[key] >= 1) return key;
+        }
+
+        // 이건 대체..
+        const answer2 = participant.find(
+          (data) => !completion[data]--,
+          completion.map(
+            (data) => (completion[data] = (completion[data] | 0) + 1)
+          )
+        );
 
         return answer;
       }
